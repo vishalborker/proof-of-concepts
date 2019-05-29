@@ -15,8 +15,8 @@ app.get('/base64/:data', function(req, res) {
 	console.log('convertedData', convertedData);
 
 	const imageBuffer = new Buffer(convertedData, 'base64');
-	fs.writeFileSync('converted.jpg', imageBuffer);
-    res.send(imageBuffer);
+	res.type('image/jpeg');
+	res.end(imageBuffer);
 });
 
 app.listen(PORT, () => {
